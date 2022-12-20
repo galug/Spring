@@ -1,0 +1,26 @@
+plugins {
+	id 'org.springframework.boot' version '2.6.3'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+	mavenCentral()//라이브러리 다운받는 사이트
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'//html 만드는 템플릿
+	implementation 'org.springframework.boot:spring-boot-starter-web'//spring boot서 dependency 다운받은거
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'//test unit junit 라이브러리
+	//implementation 'org.springframework.boot:spring-boot-starter-jdbc'//jdbc library
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	runtimeOnly 'com.h2database:h2'//h2 library
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
